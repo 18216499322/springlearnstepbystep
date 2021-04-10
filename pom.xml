@@ -12,6 +12,7 @@
         <module>ioctest</module>
         <module>caltools</module>
         <module>myspringframework</module>
+        <module>spring-aop</module>
     </modules>
 
     <properties>
