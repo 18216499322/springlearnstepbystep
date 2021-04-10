@@ -13,6 +13,8 @@
         <module>caltools</module>
         <module>myspringframework</module>
         <module>spring-aop</module>
+        <module>spring-selfaop-jdkproxy</module>
+        <module>spring-selfaop-cglibproxy</module>
     </modules>
 
     <properties>

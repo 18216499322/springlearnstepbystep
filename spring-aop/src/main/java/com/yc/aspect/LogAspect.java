@@ -1,5 +1,6 @@
 package com.yc.aspect;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.core.annotation.Order;
@@ -41,10 +42,13 @@ public class LogAspect {
     }
 
     @After("com.yc.aspect.LogAspect.addAndUpdate()")
-    public void bye() {
+    public void bye(JoinPoint p) {
         System.out.println("bye");
+        System.out.println(p.getSignature());
+        System.out.println(p.getSourceLocation());
     }
 
+    @Order(2)
     @Around("execution(* com.yc.biz.StudentBizImpl.find*(..))")
     public void around(ProceedingJoinPoint point) {
         System.out.println("环饶增强");
@@ -57,5 +61,20 @@ public class LogAspect {
         double t2 = System.currentTimeMillis();
         System.out.println("时间：" + (t2 - t1));
         System.out.println("环饶增强结束");
+    }
+
+    @Order(2)
+    @Around("execution(* com.yc.biz.StudentBizImpl.find*(..))")
+    public void around3(ProceedingJoinPoint point) {
+        System.out.println("环饶增强3");
+        double t1 = System.currentTimeMillis();
+        try {
+            Object ret = point.proceed();
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+        double t2 = System.currentTimeMillis();
+        System.out.println("时间：" + (t2 - t1));
+        System.out.println("环饶增强结束3");
     }
 }
