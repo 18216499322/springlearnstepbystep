@@ -15,6 +15,7 @@
         <module>spring-aop</module>
         <module>spring-selfaop-jdkproxy</module>
         <module>spring-selfaop-cglibproxy</module>
+        <module>spring-tx</module>
     </modules>
 
     <properties>
@@ -45,6 +46,11 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
                 <version>${spring.version}</version>
             </dependency>
             <dependency>

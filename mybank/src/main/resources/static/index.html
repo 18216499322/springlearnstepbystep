@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<div id="app">
+    <form>
+        账户&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="accountId" placeholder="账户"
+                                                    v-model="accountId"><br>
+        金额&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="money" placeholder="金额" v-model="money"><br>
+        转账账户<input type="text" name="inAccountId" placeholder="转账账户" v-model="inAccountId"><br>
+        <input type="button" value="开户" @click="openAccounts"><br>
+        <div v-html="res"></div>
+    </form>
+</div>
+<script src="js/vue.js"></script>
+<script src="js/axios.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            accountId: '',
+            money: 1,
+            inAccountId: "",
+            res: "",
+        },
+        methods: {
+            openAccounts: function () {
+                console.log(this.money);
+                var urlParam = new URLSearchParams();
+                urlParam.append("money", this.money);
+                axios.post("/mybank/openaccounts", urlParam).then(response => {
+                    if (response.data.code == 1) {
+                        this.res = "账户：" + response.data.data.accountId + " 金额：" + response.data.data.balance
+                    } else {
+                        this.res = response.data.msg;
+                    }
+                }).catch(error => {
+                    this.res = error;
+                });
+            }
+        },
+    });
+</script>
+</body>
+</html>

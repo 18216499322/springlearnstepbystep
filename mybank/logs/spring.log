@@ -1,0 +1,4 @@
+2021-04-26 21:14:18.586  INFO 15868 --- [main] com.yc.mybank.MybankApplicationTests     : Starting MybankApplicationTests using Java 1.8.0_251 on AGRTUUL3BP65U3N with PID 15868 (started by Administrator in D:\IdeaProjects\testspring\mybank)
+2021-04-26 21:14:18.591 DEBUG 15868 --- [main] com.yc.mybank.MybankApplicationTests     : Running with Spring Boot v2.4.5, Spring v5.3.6
+2021-04-26 21:14:18.594  INFO 15868 --- [main] com.yc.mybank.MybankApplicationTests     : No active profile set, falling back to default profiles: default
+2021-04-26 21:14:22.371  INFO 15868 --- [main] com.yc.mybank.MybankApplicationTests     : Started MybankApplicationTests in 4.12 seconds (JVM running for 5.316)
